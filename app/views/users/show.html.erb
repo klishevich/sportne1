@@ -4,23 +4,12 @@
 
 <h3>Мои видео</h3>
 <p class="operations"><%= link_to 'Добавить видео', new_user_video_path(@user) %></p>
-<table>
-  <tr>
-    <th class="operations">Операции</th>
-    <th>Наименование</th>
-    <th>Описание</th>
-    <th>Видео</th>
-  </tr>
-
-  <% @user.videos.each do |video| %>
-      <tr>
-        <td><%= link_to 'Смотр', user_video_path(@user, video)%>&nbsp;
-          <%= link_to 'Ред', edit_user_video_path(@user, video)%>&nbsp;
-          <%= link_to 'Уд', [@user, video], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= video.name %></td>
-        <td><%= video.description %></td>
-        <td><%= video.src %></td>
-      </tr>
-  <% end %>
-</table>
+<% @user.videos.each do |video| %>
+  <p>Name: <%= video.name %></p>
+  <p>Description: <%= video.description %></p>
+  <p><%= raw(youtube_embed(video.src)) %></p>
+  <p><%= link_to 'Редактировать', edit_user_video_path(@user, video)%>&nbsp;
+     <%= link_to 'Удалить', [@user, video], method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <hr/>
+<% end %>
 <br/>

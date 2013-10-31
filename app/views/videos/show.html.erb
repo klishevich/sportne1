@@ -1,6 +1,6 @@
 <h3>Video</h3>
 <p>Name: <%= @video.name %></p>
 <p>Description: <%= @video.description %></p>
-<p>Source: <%= @video.src %> </p>
+<p><%= raw(youtube_embed(@video.src)) %></p>
 <%= link_to "Edit", edit_user_video_path(@user,@video), class: "btn btn-large btn-secondary" %>
 <%= link_to "Home", @user, class: "btn btn-large btn-secondary", id: "btn-home" %>

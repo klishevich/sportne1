@@ -1,7 +1,7 @@
 <%= form_for([@user, @video]) do |f| %>
   <%= f.label :name %><%= f.text_field :name %>
   <%= f.label :description %><%= f.text_field :description %>
-  <%= f.label :src %> <%= f.text_field :src %>
+  <%= f.label :src %><%= f.text_area :src, rows: 5 %>
   <br/>
   <%= f.submit "Save", class: "btn btn-large btn-primary", id: "Save" %>
   <%= link_to "Cancel", @user, class: "btn btn-large btn-secondary" %>
