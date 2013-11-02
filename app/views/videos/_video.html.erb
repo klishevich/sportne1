@@ -1,0 +1,8 @@
+  <p>Наименование: <%= video.name %></p>
+  <p>Описание: <%= video.description %></p>
+  <p>Рейтинг: <%= video.rating %></p>
+  <p><%= raw(youtube_embed(video.src)) %></p>
+  <p>Опубликовано <%= time_ago_in_words(video.created_at) %> назад.</p>
+  <p><%= link_to 'Редактировать', edit_user_video_path(@user, video), class: "btn btn-large btn-secondary"%>&nbsp;
+     <%= link_to 'Удалить', [@user, video], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-large btn-secondary" %></p>
+   <hr/>

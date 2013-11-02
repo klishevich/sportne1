@@ -8,6 +8,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @videos = @user.videos.paginate(page: params[:page], per_page: 10, order: 'rating DESC') 
+    # @videos1 = @user.videos.paginate(page: params[:page], per_page: 10, order: 'created_at DESC') 
+    # User.paginate :page => params[:page], :per_page => 10, :order => 'name ASC'
   end
   
   def update

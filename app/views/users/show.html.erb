@@ -1,15 +1,15 @@
-<h3>User</h3>
-<p>User: <%= @user.name %></p>
+<h3>Страница пользователя <%= @user.name %></h3>
+<p>Пользователь: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
 
-<h3>Мои видео</h3>
-<p class="operations"><%= link_to 'Добавить видео', new_user_video_path(@user) %></p>
-<% @user.videos.each do |video| %>
-  <p>Name: <%= video.name %></p>
-  <p>Description: <%= video.description %></p>
-  <p><%= raw(youtube_embed(video.src)) %></p>
-  <p><%= link_to 'Редактировать', edit_user_video_path(@user, video)%>&nbsp;
-     <%= link_to 'Удалить', [@user, video], method: :delete, data: { confirm: 'Are you sure?' } %></p>
-  <hr/>
+<h3>Видео пользователя</h3>
+<p><%= link_to 'Добавить видео', new_user_video_path(@user), class: "btn btn-large btn-primary"  %></p>
+<% if @user.videos.any? %>
+  <h3>Список видео (<%= @user.videos.count %>)</h3>
+  <%= will_paginate @videos %>
+  <ol class="videos">
+    <%= render @videos %>
+  </ol>
+  <%= will_paginate @videos %>
 <% end %>
 <br/>

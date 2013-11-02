@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 gem 'sqlite3'
 gem 'pg'
 gem 'thin'
+gem 'will_paginate', '3.0.3'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
