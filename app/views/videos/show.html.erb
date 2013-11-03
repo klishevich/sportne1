@@ -2,8 +2,11 @@
 <p>Наименование: <%= @video.name %></p>
 <p>Описание: <%= @video.description %></p>
 <p>Рейтинг: <%= @video.rating %></p>
+<p>Добавил <%= link_to @video.user.name, @video.user %> <%= time_ago_in_words(@video.created_at) %> назад.</p>
 <p><%= raw(youtube_embed(@video.src)) %></p>
 <%= link_to "Назад", @user, class: "btn btn-large btn-secondary", id: "btn-home" %>
-<%= link_to "Изменить", edit_user_video_path(@user,@video), class: "btn btn-large btn-secondary" %>
-<%= link_to 'Удалить', [@user, @video], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-large btn-secondary" %>
-<%= link_to 'Добавить еще видео', new_user_video_path(@user), class: "btn btn-large btn-secondary"  %>
+<% if current_user == @video.user %>
+  <%= link_to "Изменить", edit_user_video_path(@user,@video), class: "btn btn-large btn-secondary" %>
+  <%= link_to 'Удалить', [@user, @video], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-large btn-secondary" %>
+  <%= link_to 'Добавить еще видео', new_user_video_path(@user), class: "btn btn-large btn-secondary"  %>
+<% end %>

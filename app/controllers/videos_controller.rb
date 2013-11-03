@@ -1,5 +1,17 @@
 class VideosController < ApplicationController
 
+  before_filter :correct_user, only: [:edit, :update, :destroy]
+
+  def popular_videos
+    @user=current_user
+    @videos = Video.paginate(page: params[:page], per_page: 10, order: 'rating DESC') 
+  end
+
+  def recent_videos
+    @user=current_user
+    @videos = Video.paginate(page: params[:page], per_page: 10, order: 'created_at DESC') 
+  end
+
   def index
     @videos = current_user.videos
   end
@@ -15,8 +27,8 @@ class VideosController < ApplicationController
   end
 
   def show
-    @user = current_user
     @video = Video.find(params[:id])
+    @user = @video.user
   end
 
   def new
@@ -46,6 +58,13 @@ class VideosController < ApplicationController
     @video.destroy
 
     redirect_to @user
+  end
+
+  private 
+
+  def correct_user
+    @video = current_user.videos.find_by_id(params[:id])
+    redirect_to root_url if @video.nil?
   end
 
 end

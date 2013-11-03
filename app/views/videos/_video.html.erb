@@ -1,8 +1,14 @@
   <p>Наименование: <%= video.name %></p>
-  <p>Описание: <%= video.description %></p>
+  <% if !video.description.empty? %>
+    <p>Описание: <%= video.description %></p>
+  <% end %>
   <p>Рейтинг: <%= video.rating %></p>
-  <p><%= raw(youtube_embed(video.src)) %></p>
-  <p>Опубликовано <%= time_ago_in_words(video.created_at) %> назад.</p>
+  <p>Добавил <%= link_to video.user.name, video.user %> <%= time_ago_in_words(video.created_at) %> назад.</p>
+  <p><%= link_to user_video_path(video.user, video) do %>
+    <%= image_tag youtube_img(video.src) %>
+  <% end %></p>
+  <% if current_user == video.user %>
   <p><%= link_to 'Редактировать', edit_user_video_path(@user, video), class: "btn btn-large btn-secondary"%>&nbsp;
      <%= link_to 'Удалить', [@user, video], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-large btn-secondary" %></p>
+  <% end %>
    <hr/>

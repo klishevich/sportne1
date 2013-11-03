@@ -1,4 +1,9 @@
 Sportne1::Application.routes.draw do
+
+  match '/recent_videos', to: 'videos#recent_videos', via: 'get'
+
+  match '/popular_videos', to: 'videos#popular_videos', via: 'get'
+
   authenticated :user do
     root :to => 'home#index'
   end

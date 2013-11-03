@@ -1,9 +1,9 @@
 <h3>Страница пользователя <%= @user.name %></h3>
 <p>Пользователь: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
-
-<h3>Видео пользователя</h3>
-<p><%= link_to 'Добавить видео', new_user_video_path(@user), class: "btn btn-large btn-primary"  %></p>
+<% if @user == current_user %>
+  <p><%= link_to 'Добавить видео', new_user_video_path(@user), class: "btn btn-large btn-primary"  %></p>
+<% end %>
 <% if @user.videos.any? %>
   <h3>Список видео (<%= @user.videos.count %>)</h3>
   <%= will_paginate @videos %>
