@@ -1,0 +1,4 @@
+<%= form_for(current_user.relationships.find_by_video_id(@video),
+             html: { method: :delete }, remote: true) do |f| %>
+  <%= f.submit "Unlike", class: "btn btn-large" %>
+<% end %>
