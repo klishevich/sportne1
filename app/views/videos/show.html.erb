@@ -1,8 +1,11 @@
 <h3>Видео</h3>
 <p>Наименование: <%= @video.name %></p>
 <p>Описание: <%= @video.description %></p>
+<div id="rating">
 <p>Рейтинг: <%= @video.rating %></p>
+</div>
 <p>Добавил <%= link_to @video.user.name, @video.user %> <%= time_ago_in_words(@video.created_at) %> назад.</p>
+<p>Тэги: <%= raw @video.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 <p><%= raw(youtube_embed(@video.src)) %></p>
 <%= render 'like_form' if current_user %>
 <%= link_to "Назад", @user, class: "btn btn-large btn-secondary", id: "btn-home" %>

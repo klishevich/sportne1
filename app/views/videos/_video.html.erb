@@ -4,6 +4,7 @@
   <% end %>
   <p>Рейтинг: <%= video.rating %></p>
   <p>Добавил <%= link_to video.user.name, video.user %> <%= time_ago_in_words(video.created_at) %> назад.</p>
+  <p>Тэги: <%= raw video.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
   <p><%= link_to user_video_path(video.user, video) do %>
     <%= image_tag youtube_img(video.src) %>
   <% end %></p>

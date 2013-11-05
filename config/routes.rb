@@ -1,5 +1,7 @@
 Sportne1::Application.routes.draw do
 
+  get 'tags/:tag', to: 'videos#index1', as: :tag
+
   resources :relationships, only: [:create, :destroy]
 
   match '/recent_videos', to: 'videos#recent_videos', via: 'get'

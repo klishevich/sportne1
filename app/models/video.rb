@@ -1,5 +1,6 @@
 class Video < ActiveRecord::Base
-  attr_accessible :description, :name, :src, :rating
+  attr_accessible :description, :name, :src, :rating, :tag_list
+  acts_as_taggable
   belongs_to :user
 
   validates :rating, presence: true, numericality: {:greater_than_or_equal_to => 0, :less_than_or_equal_to => 1000000}

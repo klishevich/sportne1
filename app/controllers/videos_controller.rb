@@ -16,6 +16,15 @@ class VideosController < ApplicationController
     @videos = current_user.videos
   end
 
+  def index1
+    @user=current_user
+    if params[:tag]
+      @videos = Video.tagged_with(params[:tag])
+    else
+      @videos = Video.all
+    end
+  end
+
   def create
     @user = current_user
     @video = @user.videos.create(params[:video])
