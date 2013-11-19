@@ -1,0 +1,15 @@
+<%if @user%>
+<%= form_for([@video.user, @video, @video.comments.build], remote: true) do |f| %>
+<br />
+<div class="field">
+  <%= f.label "Сообщение" %> 
+  <br />
+  <%= f.text_field :body %> 
+  <br/>
+</div>
+<div class="actions">
+  <%= submit_tag "Добавить сообщение", class: "btn btn-large btn-primary" %>
+</div>
+<% end %>
+<%end%>
+

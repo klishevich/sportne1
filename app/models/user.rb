@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :videos
+  has_many :comments
   has_many :relationships, foreign_key: "user_id", dependent: :destroy
   has_many :liked_videos, through: :relationships, source: :video
 

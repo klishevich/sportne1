@@ -1,0 +1,12 @@
+<p>
+<%if comment.user%> 
+  <b> <%= comment.user.name %>: </b> 
+<%end%> 
+<%= comment.body %>
+<%if comment.user == current_user%>
+  <%= link_to "Удалить сообщение", [comment.video.user, comment.video, comment],
+                                   :confirm => "Уверен?",
+                                   :method => :delete, remote: true %>
+  <%end%>
+
+</p> 

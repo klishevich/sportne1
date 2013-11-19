@@ -8,6 +8,13 @@
 <p>Тэги: <%= raw @video.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 <p><%= raw(youtube_embed(@video.src)) %></p>
 <%= render 'like_form' if current_user %>
+<div id="comments_form">
+<%= render :partial => "comments/comment",
+           :collection => @video.comments %>
+</div>
+<div id="new_comment_form">
+<%= render "comments/form" if current_user%>
+</div>
 <%= link_to "Назад", @user, class: "btn btn-large btn-secondary", id: "btn-home" %>
 <% if current_user == @video.user %>
   <%= link_to "Изменить", edit_user_video_path(@user,@video), class: "btn btn-large btn-secondary" %>

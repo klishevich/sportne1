@@ -2,6 +2,7 @@ class Video < ActiveRecord::Base
   attr_accessible :description, :name, :src, :rating, :tag_list
   acts_as_taggable
   belongs_to :user
+  has_many :comments
 
   validates :rating, presence: true, numericality: {:greater_than_or_equal_to => 0, :less_than_or_equal_to => 1000000}
   validates_uniqueness_of :src
