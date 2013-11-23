@@ -6,11 +6,12 @@
 </div>
 <p>Добавил <%= link_to @video.user.name, @video.user %> <%= time_ago_in_words(@video.created_at) %> назад.</p>
 <p>Тэги: <%= raw @video.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
-<p><%= raw(youtube_embed(@video.src)) %></p>
+<div style="width:360px;"><%= raw(youtube_embed(@video.src)) %></div>
 <%= render 'like_form' if current_user %>
 <div id="comments_form">
 <%= render :partial => "comments/comment",
-           :collection => @video.comments %>
+           :collection => @comments %>
+<%= will_paginate @comments %>
 </div>
 <div id="new_comment_form">
 <%= render "comments/form" if current_user%>

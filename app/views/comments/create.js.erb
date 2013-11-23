@@ -1,2 +1,2 @@
 $("#comments_form").html("<%= escape_javascript(render :partial => "comments/comment",
-           :collection => @video.comments) %>")
+           :collection => @comments) %><%= escape_javascript(will_paginate @comments) %>")

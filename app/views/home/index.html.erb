@@ -1,20 +1,29 @@
-<h2>Добро пожаловать на сайт Здоровой спины - Спортнэ</h2>
-<div id="tag_cloud">
-  <% tag_cloud Video.tag_counts, %w[s m l] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
+<% provide(:title, 'Гимнастика при болях в спине, при грыже, при остеохондрозе - Спортнэ') %>
+<% provide(:description, 'Видео гимнастика при болях в спине, при грыже, при остеохондрозе, упражнения при болях в пояснице') %>
+<% provide(:keywords, 'Видео гимнастика при болях в спине, при грыже, при остеохондрозе, упражнения при болях в пояснице') %>
+<div class="row">
+  <div class="span4">
+    <%= render 'inform' %>
+    <div id="tag_cloud">
+      <% tag_cloud Video.tag_counts, %w[s m l] do |tag, css_class| %>
+        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+      <% end %>
+    </div>    
+  </div>
+  <div class="span4">
+    <h3>Популярные видео</h3>
+      <div class="videos">
+        <%= render @popular_videos %>
+      </div>
+    <p><%= link_to "Все популярные видео", popular_videos_path %></p>    
+  </div>
+  <div class="span4">
+    <h3>Новые видео</h3>
+      <div class="videos">
+        <%= render @recent_videos %>
+      </div>
+    <p><%= link_to "Последние видео", recent_videos_path %></p>    
+  </div>
+
 </div>
-<h3>Популярные видео</h3>
-  <div class="videos">
-    <%= render @popular_videos %>
-  </div>
-<p><%= link_to "Все популярные видео", popular_videos_path %></p>
-<h3>Новые видео</h3>
-  <div class="videos">
-    <%= render @recent_videos %>
-  </div>
-<p><%= link_to "Последние видео", recent_videos_path %></p>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
-<% end %>
 

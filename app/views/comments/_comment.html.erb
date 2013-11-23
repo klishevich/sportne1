@@ -1,6 +1,6 @@
 <p>
 <%if comment.user%> 
-  <b> <%= comment.user.name %>: </b> 
+  <b><%= comment.user.name %></b> (создано <%= time_ago_in_words(comment.created_at) %> назад): 
 <%end%> 
 <%= comment.body %>
 <%if comment.user == current_user%>

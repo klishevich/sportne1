@@ -2,6 +2,10 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  will_paginate:
+    previous_label: "&#8592; Назад"
+    next_label: "Вперед &#8594;"
+    page_gap: "&hellip;"
     date:
       abbr_day_names:
       - Вс
@@ -267,3 +271,5 @@ en:
         <<: *errors
     video_was_successfully_created: "Видео было успешно добавлено"
     video_was_successfully_updated: "Видео было успешно обновлено"
+    comment_was_successfully_created: "Комментарий был успешно добавлен"
+    comment_cant_be_empty: "Комментарий не может быть пустым"
