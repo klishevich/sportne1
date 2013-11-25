@@ -1,10 +1,10 @@
 <p>
 <%if comment.user%> 
-  <b><%= link_to comment.user.name, comment.user %></b> (создано <%= time_ago_in_words(comment.created_at) %> назад): 
+  <b><%= comment.user.name %></b> (создано <%= time_ago_in_words(comment.created_at) %> назад): 
 <%end%> 
 <%= comment.body %>
 <%if comment.user == current_user%>
-  <%= link_to "Удалить", [comment.video.user, comment.video, comment],
+  <%= link_to "Удалить сообщение", [comment.video.user, comment.video, comment],
                                    :confirm => "Уверен?",
                                    :method => :delete, remote: true %>
   <%end%>

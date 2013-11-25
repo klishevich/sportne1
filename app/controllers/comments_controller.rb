@@ -2,12 +2,15 @@ class CommentsController < ApplicationController
 	before_filter :correct_user, only: [:destroy]
 	before_filter :authenticate_user!, only: [:create, :destroy]
 
-	# def new
-	#     @video=Video.find(params[:video_id])
-	#     @comment = @video.comments.new
-	# end		
+	def index
+	    @video=Video.find(params[:video_id])
+	    @user = @video.user
+	    @comments = @video.comments.paginate(page: params[:page], per_page: 10, order: 'created_at DESC')	 
+	    render template: "videos/show"   
+	end		
 
 	def create
+		@user = current_user
 		@video=Video.find(params[:video_id])
 		@comment = @video.comments.new(params[:comment])
 		@comment.user = current_user
@@ -34,6 +37,7 @@ class CommentsController < ApplicationController
 
 	def destroy
 		@video=Video.find(params[:video_id])
+		@user = current_user
 		@comment=@video.comments.find(params[:id])
 		@comment.destroy
 		@comments = @video.comments.paginate(page: params[:page], per_page: 10, order: 'created_at DESC')

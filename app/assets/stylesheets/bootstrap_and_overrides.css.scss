@@ -2,6 +2,8 @@
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
+$grayMediumLight: #eaeaea;
+
 #error_explanation {
   color: #f00;
   ul {
@@ -29,5 +31,35 @@ $break-large: 1200px;
   }
   @media screen and (min-width: $break-large) {
     float: right;
+  }
+}
+
+input, textarea, .uneditable-input {
+width: 410px;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $grayLight;
+  a {
+    color: $gray;
+    &:hover {
+      color: $grayDarker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
   }
 }

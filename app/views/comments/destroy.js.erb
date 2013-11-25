@@ -1,3 +1,6 @@
 $("#comments_form").html("<%= escape_javascript(render :partial => "comments/comment",
-           :collection => @comments) %><%= escape_javascript(will_paginate @comments) %>")
+           :collection => @comments) %><%= escape_javascript(will_paginate @comments, 
+           :params=>{:action=>"index"} ) %>")
+
+
 

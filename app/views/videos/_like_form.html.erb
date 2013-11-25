@@ -1,9 +1,9 @@
 <% unless current_user == @video.user %>
   <div id="like_form">
   <% if current_user.like?(@video) %>
-    <%= render 'unlike' %>
+    <%= render 'videos/unlike' %>
   <% else %>
-    <%= render 'like' %>
+    <%= render 'videos/like' %>
   <% end %>
   </div>
 <% end %>

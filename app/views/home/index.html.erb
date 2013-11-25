@@ -8,21 +8,24 @@
       <% tag_cloud Video.tag_counts, %w[s m l] do |tag, css_class| %>
         <%= link_to tag.name, tag_path(tag.name), class: css_class %>
       <% end %>
-    </div>    
+    </div>   
+    <br/>
+    <%= link_to "Популярные видео", popular_videos_path, class: "btn btn-large btn-secondary" %>
+    <%= link_to "Новые видео", recent_videos_path, class: "btn btn-large btn-secondary" %>
+    <br/>
+    <p><%= link_to 'Добавить видео', new_user_video_path(@user), class: "btn btn-large btn-secondary" if @user %> </p>
   </div>
   <div class="span4">
     <h3>Популярные видео</h3>
       <div class="videos">
         <%= render @popular_videos %>
-      </div>
-    <p><%= link_to "Все популярные видео", popular_videos_path %></p>    
+      </div>    
   </div>
   <div class="span4">
     <h3>Новые видео</h3>
       <div class="videos">
         <%= render @recent_videos %>
-      </div>
-    <p><%= link_to "Последние видео", recent_videos_path %></p>    
+      </div>    
   </div>
 
 </div>

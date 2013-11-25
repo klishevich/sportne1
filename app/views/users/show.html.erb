@@ -1,6 +1,5 @@
 <h3>Страница пользователя <%= @user.name %></h3>
 <p>Пользователь: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
 <% if @user == current_user %>
   <p><%= link_to 'Добавить видео', new_user_video_path(@user), class: "btn btn-large btn-primary"  %></p>
 <% end %>
