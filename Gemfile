@@ -34,6 +34,9 @@ group :development, :test do
 end
 group :production do
   gem 'unicorn'
+  gem 'capistrano'
+  gem 'rvm-capistrano'
+  gem 'capistrano-deploy'
 end
 group :test do
   gem 'capybara'
