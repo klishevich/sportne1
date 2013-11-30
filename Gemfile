@@ -6,6 +6,9 @@ gem 'pg'
 gem 'thin'
 gem 'will_paginate', '3.0.3'
 gem 'acts-as-taggable-on'
+gem 'capistrano'
+gem 'rvm-capistrano'
+gem 'capistrano-deploy'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -34,9 +37,6 @@ group :development, :test do
 end
 group :production do
   gem 'unicorn'
-  gem 'capistrano'
-  gem 'rvm-capistrano'
-  gem 'capistrano-deploy'
 end
 group :test do
   gem 'capybara'
