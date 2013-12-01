@@ -10,10 +10,9 @@
       <% end %>
     </div>   
     <br/>
-    <p><%= link_to "Популярные видео", popular_videos_path, class: "btn btn-large btn-secondary" %>
-    <%= link_to "Новые видео", recent_videos_path, class: "btn btn-large btn-secondary" %></p>
-    <p><%= link_to 'Добавить видео', new_user_video_path(@user), class: "btn btn-large btn-secondary" if @user %>
-    </p>
+    <div class="button_class"><%= link_to "Популярные видео", popular_videos_path, class: "btn btn-large btn-secondary" %></div>
+    <div class="button_class"><%= link_to "Новые видео", recent_videos_path, class: "btn btn-large btn-secondary" %></div>
+    <div class="button_class_last"><%= link_to 'Добавить видео', new_user_video_path(@user), class: "btn btn-large btn-primary" if @user %></div>
   </div>
   <div class="span4">
     <h3>Популярные видео</h3>
