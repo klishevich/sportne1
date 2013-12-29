@@ -1,5 +1,9 @@
 Sportne1::Application.routes.draw do
 
+  match '/contacts', to: 'static_pages#contacts', via: 'get'
+
+  match '/about', to: 'static_pages#about', via: 'get'
+
   get 'tags/:tag', to: 'videos#index1', as: :tag
 
   resources :relationships, only: [:create, :destroy]
