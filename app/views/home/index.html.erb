@@ -1,20 +1,21 @@
-<% provide(:title, 'Гимнастика при болях в спине, при грыже, при остеохондрозе - Спортнэ') %>
+<% provide(:title, 'Спортнэ - упражнения для здоровой спины!') %>
 <% provide(:description, 'Видео гимнастика при болях в спине, при грыже, при остеохондрозе, упражнения при болях в пояснице') %>
 <% provide(:keywords, 'Видео гимнастика при болях в спине, при грыже, при остеохондрозе, упражнения при болях в пояснице') %>
 <div class="row">
   <div class="span4">
     <%= render 'inform' %>
     <div id="tag_cloud">
+      <h3>Облако тэгов</h3>
       <% tag_cloud Video.tag_counts, %w[s m l] do |tag, css_class| %>
         <%= link_to tag.name, tag_path(tag.name), class: css_class %>
       <% end %>
     </div>   
     <br/>
-    <div class="button_class"><%= link_to "Популярные видео", popular_videos_path, class: "btn btn-large btn-secondary" %></div>
-    <div class="button_class"><%= link_to "Новые видео", recent_videos_path, class: "btn btn-large btn-secondary" %></div>
+    <div class="button_class"><%= link_to "Популярное", popular_videos_path, class: "btn btn-large btn-secondary" %></div>
+    <div class="button_class"><%= link_to "Новое видео", recent_videos_path, class: "btn btn-large btn-secondary" %></div>
     <div class="button_class_last"><%= link_to 'Добавить видео', new_user_video_path(@user), class: "btn btn-large btn-primary" if @user %></div>
   </div>
-  <div class="span4">
+  <div class="span4 popular">
     <h3>Популярные видео</h3>
       <div class="videos">
         <%= render @popular_videos %>

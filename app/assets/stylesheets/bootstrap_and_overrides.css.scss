@@ -4,6 +4,10 @@ body { padding-top: 60px; }
 
 $grayMediumLight: #eaeaea;
 
+h1 {
+font-size: 30px;
+}
+
 #error_explanation {
   color: #f00;
   ul {
@@ -21,6 +25,10 @@ $grayMediumLight: #eaeaea;
 
 $break-small: 320px;
 $break-large: 1200px;
+
+.popular {
+  overflow: hidden;
+}
 
 .video-pic {
   float: left;
@@ -47,6 +55,11 @@ width: 410px;
 .button_class_last {
   padding-bottom: 10px;
   padding-right: 10px;
+}
+
+.img {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 /* footer */

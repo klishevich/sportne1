@@ -79,3 +79,6 @@ pickle-email-*.html
 
 # Ignore other unneeded files.
 database.yml
+
+# My project files
+/_docs/
