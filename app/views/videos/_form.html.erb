@@ -5,10 +5,16 @@
   <% if current_user.has_role? :admin %>
   <%= f.label :rating %><%= f.text_field :rating %>
   <% end %>
+  <%= f.label :src %><%= f.text_area :src, rows: 5, :placeholder => "http://www.youtube.com/watch?v=6C6_5wOPMS8"%>
   <%= f.label :tag_list, "Тэги (через запятую)" %>
   <%= f.text_field :tag_list %>
-  <%= f.label :src %><%= f.text_area :src, rows: 5, :placeholder => "http://www.youtube.com/watch?v=6C6_5wOPMS8"%>
-  <br/>
+    <div id="tag_cloud1">
+      <ul>
+      <% tag_cloud Video.tag_counts, %w[s s s] do |tag, css_class| %>
+        <li><%= tag.name %></li>
+      <% end %>
+      </ul>
+    </div>
   <%= link_to "На главную", root_path, class: "btn btn-large btn-secondary" %>
   <%= f.submit "Сохранить", class: "btn btn-large btn-primary", id: "Save" %>
 <% end %>
