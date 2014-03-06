@@ -19,6 +19,7 @@ Sportne1::Application.routes.draw do
   devise_for :users
   
   resources :users do 
+    resources :works
     resources :videos do
       resources :comments
     end    

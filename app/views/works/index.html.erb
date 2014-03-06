@@ -1,0 +1,21 @@
+<h3>Проделанная работа</h3>
+<div class="span8">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Дата</th>
+      <th>Оценка</th>
+      <th>Описание</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @works.each do |work| %>
+    <tr>
+      <td><%= work.created_at %></td>
+      <td><%= work.mark %></td>      
+      <td><%= work.description %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>

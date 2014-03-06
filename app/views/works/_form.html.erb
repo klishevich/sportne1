@@ -1,0 +1,7 @@
+<%= form_for([@user, @work]) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.label :mark %><%= f.text_field :mark %>
+  <%= f.label :description %><%= f.text_area :description, rows: 5 %>
+  <%= link_to "На главную", root_path, class: "btn btn-large btn-secondary" %>
+  <%= f.submit "Сохранить", class: "btn btn-large btn-primary", id: "Save" %>
+<% end %>
