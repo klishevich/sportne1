@@ -3,7 +3,7 @@ class WorksController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @works = current_user.works
+    @works = current_user.works.limit(100).order("id desc")
   end
 
   def create

@@ -1,0 +1,11 @@
+= form_for([@user, @work]) do |f|
+  div.form_data
+    = render 'shared/error_messages', object: f.object
+    div.label_with_comment
+      = f.label :mark
+      span &nbsp;(от 0 до 10)
+    = f.text_field :mark
+    = f.label :description
+    = f.text_area :description, rows: 5
+  div.button_class_save = link_to "На главную", root_path, class: "btn btn-large btn-secondary"
+  div.button_class_save = f.submit "Сохранить", class: "btn btn-large btn-primary", id: "Save"

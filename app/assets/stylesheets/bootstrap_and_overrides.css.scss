@@ -62,9 +62,21 @@ width: 410px;
   float:left;
 }
 
+.button_class_save {
+  padding: 0px 10px 5px 0px;
+  float:left;
+}
+
 .img {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.label_with_comment {
+  label {
+    float:left;
+  }
+  overflow: hidden;
 }
 
 /* footer */

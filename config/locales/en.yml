@@ -267,9 +267,14 @@ en:
           description: "Описание"
           rating: "Рейтинг"
           src: "Ссылка на ролик YouTube"
+        work:
+          mark: "Оценка"
+          description: "Описание"
       errors:
         <<: *errors
     video_was_successfully_created: "Видео было успешно добавлено"
     video_was_successfully_updated: "Видео было успешно обновлено"
+    work_was_successfully_created: "Работа была успешно добавлена"
+    work_was_successfully_updated: "Работа была успешно обновлена"
     comment_was_successfully_created: "Комментарий был успешно добавлен"
     comment_cant_be_empty: "Комментарий не может быть пустым"

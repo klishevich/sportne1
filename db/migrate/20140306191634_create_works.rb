@@ -2,7 +2,7 @@ class CreateWorks < ActiveRecord::Migration
   def change
     create_table :works do |t|
       t.integer :mark
-      t.string :description
+      t.text :description
       t.references :video
       t.references :user
 

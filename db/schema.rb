@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(:version => 20140306191634) do
 
   create_table "works", :force => true do |t|
     t.integer  "mark"
-    t.string   "description"
+    t.text     "description"
     t.integer  "video_id"
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
