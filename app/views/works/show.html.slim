@@ -1,7 +1,8 @@
-<h3>Работа</h3>
-<%= form_for([@user, @work]) do |f| %>
-  <%= f.label :mark %><%= f.text_field :mark, disabled: true %>
-  <%= f.label :description %><%= f.text_area :description, rows: 5, disabled: true %>
-<% end %>
-<%= link_to "На главную", root_path, class: "btn btn-large btn-secondary" %>	
-<%= link_to "К списку работ", user_works_path(@user), class: "btn btn-large btn-secondary" %>
+h3 Работа
+= form_for([@user, @work]) do |f|
+  = f.label :mark
+  = f.text_field :mark, disabled: true
+  = f.label :description 
+  = f.text_area :description, rows: 5, disabled: true
+div.button_class_save = link_to "На главную", root_path, class: "btn btn-large btn-secondary"	
+div.button_class_save = link_to "К списку работ", user_works_path(@user), class: "btn btn-large btn-secondary"
