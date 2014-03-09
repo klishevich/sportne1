@@ -1,7 +1,7 @@
 Sportne1::Application.routes.draw do
 
+  match '/profile', to: 'profile#index', via: 'get'
   match '/contacts', to: 'static_pages#contacts', via: 'get'
-
   match '/about', to: 'static_pages#about', via: 'get'
 
   get 'tags/:tag', to: 'videos#index1', as: :tag
@@ -9,7 +9,6 @@ Sportne1::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   match '/recent_videos', to: 'videos#recent_videos', via: 'get'
-
   match '/popular_videos', to: 'videos#popular_videos', via: 'get'
 
   authenticated :user do

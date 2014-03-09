@@ -262,6 +262,11 @@ en:
         <<: *errors
     activerecord:
       attributes:
+        user:
+          name: "Имя"
+          password: "Пароль"
+          password_confirmation: "Подтверждение пароля"
+          current_password: "Текущий пароль"
         video:
           name: "Наименование"
           description: "Описание"

@@ -1,0 +1,43 @@
+= content_for :head  do 
+  = javascript_include_tag 'amcharts/amcharts'
+  = javascript_include_tag 'amcharts/serial'
+  = javascript_include_tag 'profile1'
+
+= provide :title, 'Мой профиль' 
+
+h1 Мой профиль
+p = t('activerecord.attributes.user.name') + ": " + @user.name
+p Email: #{@user.email}
+= link_to 'Редактировать аккаунт', edit_user_registration_path, class: 'btn'
+h3 Мои последние тренировки
+div.works
+  table class="table table-striped"
+    tr
+      th Описание
+      th Оценка
+      th Дата добавления
+    - @my_works.each do |work|
+      tr
+        td = link_to work.description, user_work_path(work.user, work)
+        td = work.mark
+        td #{l work.created_at, format: :short} (по Гринвичу)
+=link_to 'Записать работу', new_user_work_path(current_user), class: "btn btn-primary"       
+
+h3 График тренировок
+p Парам
+div id="chartdiv" style="width: 100%; height: 400px;"
+div style="margin-left:35px;"
+
+h3 Мои последние видео
+div.videos
+  table class="table table-striped"
+    tr
+      th Наименование
+      th Рейтинг
+      th Дата добавления
+    - @my_videos.each do |video|
+      tr
+        td = link_to video.name, user_video_path(video.user, video)
+        td = video.rating
+        td #{l video.created_at.in_time_zone("Moscow"), format: :short} (МСК)        
+= link_to 'Добавить видео', new_user_video_path(current_user), class: "btn btn-primary"

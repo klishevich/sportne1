@@ -4,6 +4,12 @@ class WorksController < ApplicationController
 
   def index
     @works = current_user.works.limit(100).order("id desc")
+    @works1 = current_user.works.limit(100).order("created_at")
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @works1.to_json }
+    end  
   end
 
   def create
