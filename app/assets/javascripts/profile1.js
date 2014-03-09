@@ -154,7 +154,7 @@ var chart;
 AmCharts.ready(function() {
 
   // load the data
-  var chartData = AmCharts.loadJSON('/users/1/works.json');
+  var chartData = AmCharts.loadJSON('/profile_works.json');
 
   // SERIAL CHART    
   chart = new AmCharts.AmSerialChart();

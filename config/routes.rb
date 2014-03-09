@@ -1,6 +1,7 @@
 Sportne1::Application.routes.draw do
 
   match '/profile', to: 'profile#index', via: 'get'
+  match '/profile_works', to: 'profile#works', via: 'get'
   match '/contacts', to: 'static_pages#contacts', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'
 
